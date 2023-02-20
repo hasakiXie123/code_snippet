@@ -10,3 +10,10 @@ one = torch.ones([1, 2048])
 non_idxs = torch.all(zeros[..., :] == 0, axis=1).nonzero().tolist()
 non_idxs = [x[0] for x in non_idxs]
 zeros[non_idxs] = one
+
+## set random seed
+seed = 42
+torch.manual_seed(seed)
+np.random.seed(seed)
+rn.seed(seed)
+os.environ['PYTHONHASHSEED'] = str(seed)
